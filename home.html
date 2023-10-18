@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chan</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        background-color: aliceblue;
+      }
+
+      header {
+        background-color: rgb(4, 4, 86);
+        margin-bottom: 20px;
+      }
+      .head {
+        padding: 10px 0;
+        color: white;
+        text-align: center;
+      }
+
+      .main {
+        background-color: rgb(255, 255, 255);
+        padding: 20px;
+        width: 60%;
+        margin: 0 auto;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      #task {
+        padding: 10px 5px;
+        outline: none;
+      }
+      #btn {
+        padding: 10px 10px;
+        border: none;
+        background-color: rgb(49, 49, 255);
+        color: white;
+        cursor: pointer;
+      }
+      #btn:hover {
+        color: blue;
+        background-color: white;
+      }
+      #newTask {
+        position: relative;
+        top: 50px;
+        list-style-type: none;
+        background-color: rgb(255, 255, 255);
+        padding: 20px;
+        width: 60%;
+        margin: 0 auto;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .item {
+        list-style-type: none;
+        padding: 7px 5px;
+        border: 1px solid black;
+        margin: 7px 0;
+        border-radius: 5px;
+        text-align: left;
+      }
+      #input {
+        padding: 10px;
+        border-radius: 5px;
+      }
+      @media only screen and (max-width: 600px) {
+        main {
+          width: 100%;
+          background-color: aqua;
+          display: block;
+        }
+        #input {
+          margin: 0;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        #btn {
+          width: 60%;
+          margin-top: 30px;
+          border-radius: 5px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="head" id="head">To Do List</h1>
+    </header>
+
+    <main class="main">
+      <input
+        id="input"
+        name="chan"
+        value=""
+        type="text"
+        placeholder="enter today task"
+      />
+      <br />
+      <button id="btn" onclick="click()">Add</button>
+    </main>
+
+    <ul id="newTask">
+      <li class="item">react</li>
+      <li class="item">node</li>
+      <li class="item">mongo Db</li>
+      <li class="item">angular</li>
+    </ul>
+
+    <script>
+      const input = document.getElementById("input");
+
+      const btn = document.getElementById("btn");
+
+      const newTask = document.getElementById("newTask");
+
+      btn.addEventListener("click", () => {
+        console.log(input.value);
+        if (input.value === "") return;
+        newTask.innerHTML += `<li class='item'>${input.value}</li>`;
+      });
+    </script>
+  </body>
+</html>

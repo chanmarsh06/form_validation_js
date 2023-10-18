@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- *********** Bootstrap **********-->
+    <link rel="stylesheet" href="Assests/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container mt-3">
+      <header class="mt-3 text-center">
+        <h1>Sign Up</h1>
+      </header>
+      <form class="container mb-4" onsubmit="validateform()">
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <!--Password-->
+        <div class="mb-3">
+          <label for="password1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password1" />
+        </div>
+
+        <!--Password-->
+        <div class="mb-3">
+          <label for="password2" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="password2" />
+        </div>
+
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-danger">Reset</button>
+        </div>
+        <p class="text-center">
+          Already Have An Account? Click Here To
+          <a class="text-success" href="index.html">Sign In</a>
+        </p>
+      </form>
+    </div>
+    <script>
+      function validateform() {
+        event.preventDefault();
+        var email = document.getElementById("email").value;
+        var password1 = document.getElementById("password1").value;
+        var password2 = document.getElementById("password2").value;
+
+        if (email == null || email == "") {
+          alert("email can't be blank");
+          return false;
+        }
+        if(password1.length > 4 && password2.length >4){
+            alert('Password must be at least 4 characters long.')
+        }
+        if (password1 === password2 ) {
+          alert("login Successful");
+          window.location.href = "index.html";
+        } else {
+          alert("password must be same!");
+          return;
+        }
+      }
+    </script>
+
+    <!-- ************ bootstrap JS *************-->
+    <script src="Assests/css/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
